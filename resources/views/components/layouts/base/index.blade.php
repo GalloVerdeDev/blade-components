@@ -61,9 +61,9 @@
         </div>
 
         <main class="flex-1">
-            <div class="py-6">
+            <div>
 
-                <div class="w-full mx-auto px-4 sm:px-6 md:px-8">
+                <div class="w-full mx-auto">
                     @if (isset($title))
                         <h1 class="md:hidden text-xl font-semibold text-gray-900">{{ $title }}</h1>
                     @endif
