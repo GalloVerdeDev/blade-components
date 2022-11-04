@@ -5,7 +5,7 @@
 
 @php
     $classes = generateClasses([
-        'p-2 whitespace-nowrap',
+        'py-2 px-6 whitespace-nowrap',
         'text-gray-800' => !$light,
         'text-gray-600' => $light
     ]);
@@ -17,7 +17,9 @@
 
 <td {{ $attributes->merge(['class' => $classes]) }} {{ $attributes->except(['class']) }}>
     <div class="{{ $avatarClasses }}">
-        <x-blade-com::avatar src="{{ $src }}" size="xs" />
+        <span class="flex-shrink-0">
+            <x-blade-com::avatar src="{{ $src }}" size="xs" />
+        </span>
 
         <div>
             {{ $slot }}
