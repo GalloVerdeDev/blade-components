@@ -4,6 +4,7 @@
     'iconPosition' => 'before',
     'size' => 'md',
     'width' => null,
+    'href' => null,
 ])
 
 @php
@@ -32,32 +33,64 @@
 @endphp
 
 <x-blade-com::component-wrapper>
-    <button
-        {{ $attributes->merge(['class' => $buttonClasses]) }}
-        {{ $attributes->except(['class']) }}
-        @if ($target = $attributes->wire('click')->value)
-            wire:loading.attr="disabled"
+    @if ($href)
+        <a
+            href="{{ $href }}"
+            {{ $attributes->merge(['class' => $buttonClasses]) }}
+            {{ $attributes->except(['class']) }}
+            @if ($target = $attributes->wire('click')->value)
+                wire:loading.attr="disabled"
             wire:target="{{ $target }}"
-        @endif
-    >
+            @endif
+        >
 
-        @if ($target = $attributes->wire('click')->value)
-            <span wire:loading wire:target="{{ $target }}">
-                <x-blade-com::loading-spinner class="w-4 h-4" />
-            </span>
-        @endif
+            @if ($target = $attributes->wire('click')->value)
+                <span wire:loading wire:target="{{ $target }}">
+                    <x-blade-com::loading-spinner class="w-4 h-4" />
+                </span>
+            @endif
 
-        @if ($icon)
-            <span
-                @if($target = $attributes->wire('click')->value)
-                    wire:loading.remove
+            @if ($icon)
+                <span
+                    @if($target = $attributes->wire('click')->value)
+                        wire:loading.remove
                     wire:target="{{ $target }}"
-                @endif
-            >
-                <x-dynamic-component :component="$icon" :class="$iconClasses" />
-            </span>
-        @endif
+                    @endif
+                >
+                    <x-dynamic-component :component="$icon" :class="$iconClasses" />
+                </span>
+            @endif
 
-        {{ $slot }}
-    </button>
+            {{ $slot }}
+        </a>
+    @else
+        <button
+            {{ $attributes->merge(['class' => $buttonClasses]) }}
+            {{ $attributes->except(['class']) }}
+            @if ($target = $attributes->wire('click')->value)
+                wire:loading.attr="disabled"
+                wire:target="{{ $target }}"
+            @endif
+        >
+
+            @if ($target = $attributes->wire('click')->value)
+                <span wire:loading wire:target="{{ $target }}">
+                    <x-blade-com::loading-spinner class="w-4 h-4" />
+                </span>
+            @endif
+
+            @if ($icon)
+                <span
+                    @if($target = $attributes->wire('click')->value)
+                        wire:loading.remove
+                        wire:target="{{ $target }}"
+                    @endif
+                >
+                    <x-dynamic-component :component="$icon" :class="$iconClasses" />
+                </span>
+            @endif
+
+            {{ $slot }}
+        </button>
+    @endif
 </x-blade-com::component-wrapper>
