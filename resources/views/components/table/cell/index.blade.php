@@ -5,7 +5,7 @@
 
 @php
     $classes = generateClasses([
-        'p-2 whitespace-nowrap h-full',
+        'py-2 px-6 whitespace-nowrap h-full',
         'text-left' => $align === 'left',
         'text-center' => $align === 'center',
         'text-right' => $align === 'right',
