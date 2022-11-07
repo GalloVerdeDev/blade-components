@@ -5,7 +5,7 @@
 <div x-data="{ navOpen: false, profileMenuOpen: false }">
     {{ $sidebar }}
 
-    <div class="md:pl-64 flex flex-col">
+    <div class="md:pl-64 flex flex-col h-screen">
         @if (isset($message))
             <div class="bg-primary-900 text-center text-white py-2 font-bold">
                 {{ $message }}
@@ -60,7 +60,7 @@
             </div>
         </div>
 
-        <main class="flex-1">
+        <main class="flex-grow">
             <div>
 
                 <div class="w-full mx-auto">
