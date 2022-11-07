@@ -62,10 +62,6 @@
 
         <main class="flex-grow">
             <div class="w-full mx-auto h-full">
-                @if (isset($title))
-                    <h1 class="md:hidden text-xl font-semibold text-gray-900">{{ $title }}</h1>
-                @endif
-
                 {{ $slot }}
             </div>
         </main>
