@@ -53,11 +53,14 @@
                         <div class="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                             <div class="px-4 sm:px-6">
                                 <div class="flex items-start justify-between">
-                                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">{{ $title }}</h2>
+                                    @if (isset($title))
+                                        <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">{{ $title }}</h2>
+                                    @endif
+
                                     <div class="ml-3 flex h-7 items-center">
                                         <button x-on:click="open = false" type="button" class="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2">
                                             <span class="sr-only">Close panel</span>
-                                            <x-iconic-close class="w-6 h-6" />
+                                            <x-heroicon-s-x class="w-6 h-6" />
                                         </button>
                                     </div>
                                 </div>
