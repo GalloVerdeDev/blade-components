@@ -27,15 +27,17 @@
 @endphp
 
 <x-blade-com::component-wrapper>
-    <div class="flex justify-between">
-        @if ($slot)
-            <x-blade-com::label name="{{ $name }}" required="{{ $required }}">{{ $slot }}</x-blade-com::label>
-        @endif
+    @if ($helperText || $slot->isNotEmpty())
+        <div class="flex justify-between">
+            @if ($slot)
+                <x-blade-com::label name="{{ $name }}" required="{{ $required }}">{{ $slot }}</x-blade-com::label>
+            @endif
 
-        @if ($helperText)
-            <span class="text-sm text-gray-600">{{ $helperText }}</span>
-        @endif
-    </div>
+            @if ($helperText)
+                <span class="text-sm text-gray-600">{{ $helperText }}</span>
+            @endif
+        </div>
+    @endif
 
     <div class="flex">
         <div class="relative w-full flex group">
