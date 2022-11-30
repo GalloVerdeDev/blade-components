@@ -7,7 +7,7 @@
 
 @php
     $classes = generateClasses([
-        'appearance-none w-full border-gray-300 focus:border-transparent shadow-inner transition px-3 focus:ring-2 py-1.5 focus:ring-primary-600 text-base w-full ' . config('blade-components.rounded')
+        'appearance-none w-full border-gray-300 focus:border-transparent shadow-inner px-3 focus:ring-2 py-1.5 focus:ring-primary-600 text-base w-full ' . config('blade-components.rounded')
     ]);
 @endphp
 
