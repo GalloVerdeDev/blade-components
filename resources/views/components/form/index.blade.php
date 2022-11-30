@@ -6,11 +6,11 @@
 <form method="{{ $method }}" action="{{ $action }}" {{ $attributes->except(['action', 'method']) }}>
     @csrf
 
-    <div {{ $attributes->merge(['class' => 'space-y-6']) }}>
+    <div {{ $attributes->merge(['class' => 'space-y-4']) }}>
         {{ $slot }}
 
         @if (isset($buttons))
-            <div class="pt-2">
+            <div>
                 {{ $buttons }}
             </div>
         @endif
